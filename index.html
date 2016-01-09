@@ -516,7 +516,7 @@
 	body {
 	  width: 100%;
 	  height: 100%;
-	  font: 700 1em;
+	  font-family: Tahoma, Geneva, sans-serif;
 	  letter-spacing: .15em;
 	  color: #ff6;
 	  background: #000;
@@ -599,8 +599,8 @@
 	  top: 100%;
 	  transform: translate3d(0,0,0);
 	  will-change: transform;
-	  -webkit-animation: titles 50s linear 7s;
-	          animation: titles 50s linear 7s;
+	  -webkit-animation: titles 50s linear 10s;
+	          animation: titles 50s linear 10s;
 	}
 	.starwars .titles > div > p {
 	  margin: 1.35em 0 1.85em 0;
@@ -689,7 +689,7 @@
 	    opacity: 1;
 	  }
 	  100% {
-	    top: 5%;
+	    top: -100%;
 	    opacity: 0;
 	  }
 	}
@@ -702,14 +702,14 @@
 	    opacity: 1;
 	  }
 	  100% {
-	    top: 5%;
+	    top: -100%;
 	    opacity: 0;
 	  }
 	}
 
 
 	/* sw LOGO */
-	        	@font-face {
+/*	        	@font-face {
 	        	    font-family: 'latoregular';
 	        	    src: url('lato-regular-webfont.eot');
 	        	    src: url('lato-regular-webfont.eot?#iefix') format('embedded-opentype'),
@@ -720,7 +720,7 @@
 	        	    font-weight: normal;
 	        	    font-style: normal;
 
-	        	}
+	        	}*/
 						/* Animation properties */
 						.star {
 						  animation: star 10s ease-out forwards;
@@ -780,22 +780,27 @@
 						  30% {
 						    opacity: 1;
 						  }
-						  70%, 86% {
+						  70%, 86%, 100% {
 						    transform: rotateY(0);
 						    opacity: 1;
 						  }
-						  95%, 100% {
-						    opacity: 0;
-						    transform: translateZ(-1000em);
-						  }
+						  
 						}
 
 						@keyframes move-byline {
 						  0% {
 						    transform: translateZ(5em);
 						  }
-						  100% {
+						  70%, 86% {
 						    transform: translateZ(0);
+						  }
+						  90% {
+						    transform: translateZ(0);
+						  	opacity: 0.8;
+						  }
+						  100% {
+						  	opacity: 0;
+						    transform: translateZ(-1000em);
 						  }
 						}
 
@@ -837,7 +842,7 @@
 
 						.byline {
 						  color: #fff;
-						  font-family: "latoregular",sans-serif;
+						  font-family: Tahoma, Geneva, sans-serif;
 						  font-size: 2.25em;
 						  left: -7em;
 						  letter-spacing: 0.4em;
@@ -965,7 +970,7 @@
     	  span = document.createElement("span");					// Create a <span> element
     	  letter = document.createTextNode(bylineArr[i]);	// Create the letter
     	  if(bylineArr[i] == ' ') {												// If the letter is a space...
-    	    byline.appendChild(letter);					// ...Add the space without a span
+    	    docFrag.appendChild(letter);					// ...Add the space without a span
     	  } else {
     			span.appendChild(letter);						// Add the letter to the span
     	  	docFrag.appendChild(span); 					// Add the span to the h2
