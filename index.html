@@ -746,7 +746,7 @@
 						  }
 						  89% {
 						    opacity: 1;
-						    transform: scale(1);
+						    transform: scale(0.7);
 						  }
 						  100% {
 						    opacity: 0;
@@ -764,7 +764,7 @@
 						  }
 						  90% {
 						    opacity: 1;
-						    transform: scale(1);
+						    transform: scale(0.7);
 						  }
 						  100% {
 						    opacity: 0;
@@ -773,16 +773,20 @@
 						}
 
 						@keyframes spin-letters {
-						  0%, 10% {
+						  0%{
 						    opacity: 0;
 						    transform: rotateY(90deg);
 						  }
-						  30% {
-						    opacity: 1;
+						  10% {
+						  	opacity: 1;
 						  }
-						  70%, 86%, 100% {
+						  
+						  90% {
 						    transform: rotateY(0);
 						    opacity: 1;
+						  }
+						  100 {
+						  	opacity: 0;
 						  }
 						  
 						}
@@ -791,9 +795,7 @@
 						  0% {
 						    transform: translateZ(5em);
 						  }
-						  70%, 86% {
-						    transform: translateZ(0);
-						  }
+						  
 						  90% {
 						    transform: translateZ(0);
 						  	opacity: 0.8;
@@ -817,7 +819,10 @@
 						  position: absolute;
 						  top: 53%;
 						  transform: translate(-50%, -50%);
-						  width: 34em;
+						  width: 42em;
+						}
+						.starwars-demo use {
+							transform: translate3d(28%,0,0);
 						}
 
 						.byline span {
@@ -826,6 +831,7 @@
 
 						svg {
 						  width: 100%;
+						  margin: 0 0 0 20%;
 						}
 
 						.star, .wars, .byline {
@@ -844,9 +850,7 @@
 						  color: #fff;
 						  font-family: Tahoma, Geneva, sans-serif;
 						  font-size: 2.25em;
-						  left: -7em;
 						  letter-spacing: 0.4em;
-						  right: -2em;
 						  text-align: center;
 						  text-transform: uppercase;
 						  top: 19%;
