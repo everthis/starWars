@@ -580,6 +580,20 @@
 	  -webkit-transform: perspective(300px) rotateX(15deg);
 	  transform: perspective(300px) rotateX(15deg);
 	}
+	.starwars .titles::after {
+		position: absolute;
+		    content: ' ';
+		    left: 0;
+		    right: 0;
+		    top: 0;
+		    bottom: 40%;
+		    background-image: -webkit-linear-gradient(top, #000 0%, rgba(0, 0, 0, 0) 100%);
+		    background-image: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
+		    background-image: -ms-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
+		    background-image: -o-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
+		    background-image: linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
+		    pointer-events: none;
+	}
 	.starwars .titles > div {
 	  position: absolute;
 	  top: 100%;
@@ -823,7 +837,7 @@
 
 						.byline {
 						  color: #fff;
-						  font-family: "latoregular";
+						  font-family: "latoregular",sans-serif;
 						  font-size: 2.25em;
 						  left: -7em;
 						  letter-spacing: 0.4em;
@@ -845,6 +859,9 @@
 						  .starwars-demo {
 						    font-size: 7px;
 						  }
+						}
+						.hide {
+							display: none;
 						}
 	</style>
 </head>
@@ -922,7 +939,7 @@
         </div>
     </section>
     
-    <section class="starwars-demo">
+    <section class="starwars-demo hide">
 			<svg class="star">
 			  <use xlink:href="#star"></use>
 			</svg>
@@ -1008,6 +1025,7 @@
 	    this.cloned = this.animation.cloneNode(true);
 	    this.animation.parentNode.removeChild(this.animation);
 	    this.animation = this.cloned;
+	    this.animation.querySelector('.starwars-demo').classList.remove('hide');
 	  };
 
 		new StarWars({

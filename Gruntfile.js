@@ -74,7 +74,8 @@ module.exports = function (grunt) {
           removeOptionalTags: true,
           removeRedundantAttributes: true,
           useShortDoctype: true,
-          minifyCSS:true
+          minifyCSS:true,
+          minifyJS:true
         },
         files: [{
           expand: true,
