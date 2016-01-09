@@ -828,10 +828,12 @@
 						.byline span {
 						  display: inline-block;
 						}
-
+						.svgs {
+						  padding: 0 0 0 8em;
+							
+						}
 						svg {
 						  width: 100%;
-						  margin: 0 0 0 20%;
 						}
 
 						.star, .wars, .byline {
@@ -952,12 +954,15 @@
     </section>
     
     <section class="starwars-demo hide">
-			<svg class="star">
-			  <use xlink:href="#star"></use>
-			</svg>
-			<svg class="wars">
-			  <use xlink:href="#wars"></use>
-			</svg>
+	    <div class="svgs">
+	    	<svg class="star">
+	    	  <use xlink:href="#star"></use>
+	    	</svg>
+	    	<svg class="wars">
+	    	  <use xlink:href="#wars"></use>
+	    	</svg>
+	    </div>
+
     	<h2 class="byline" id="byline">The Force Awakens</h2>
     </section>
     </div>
