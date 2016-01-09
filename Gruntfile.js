@@ -28,6 +28,20 @@ module.exports = function (grunt) {
     // Project settings
     config: config,
 
+    // Copies remaining files to places other tasks can use
+    copy: {
+      dist: {
+        files: [{
+          expand: true,
+          dot: true,
+          cwd: './',
+          dest: '<%= config.dist %>',
+          src: [
+            '*.{eot,svg,ttf,woff,woff2}'
+          ]
+        }]
+      }
+    },
 
     htmlmin: {
       dist: {
@@ -77,7 +91,8 @@ module.exports = function (grunt) {
 
 
   grunt.registerTask('starwars', [
-    'htmlmin:starwars'
+    'htmlmin:starwars',
+    'copy:dist'
   ]);
 
 };

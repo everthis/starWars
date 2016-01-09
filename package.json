@@ -9,7 +9,8 @@
     "grunt": "*",
     "grunt-contrib-htmlmin": "*",
     "load-grunt-tasks": "*",
-    "time-grunt": "*"
+    "time-grunt": "*",
+    "grunt-contrib-copy": "*"
   },
   "engines": {
     "node": "*"
