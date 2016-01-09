@@ -350,6 +350,25 @@ module.exports = function (grunt) {
           src: '{,*/}*.html',
           dest: '<%= config.dist %>'
         }]
+      },
+      starwars: {
+        options: {
+          collapseBooleanAttributes: false,
+          collapseWhitespace: false,
+          conservativeCollapse: false,
+          removeAttributeQuotes: false,
+          removeCommentsFromCDATA: false,
+          removeEmptyAttributes: false,
+          removeOptionalTags: false,
+          removeRedundantAttributes: false,
+          useShortDoctype: false
+        },
+        files: [{
+          expand: true,
+          cwd: './',
+          src: 'index.html',
+          dest: '<%= config.dist %>'
+        }]
       }
     },
 
@@ -496,6 +515,10 @@ module.exports = function (grunt) {
     'rev',
     'usemin',
     'htmlmin'
+  ]);
+
+  grunt.registerTask('starwars', [
+    'htmlmin:starwars'
   ]);
 
   grunt.registerTask('default', [
