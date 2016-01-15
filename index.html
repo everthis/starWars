@@ -524,6 +524,12 @@
 	  margin: 0;
 	}
 
+	.starwars {
+		height: 100%;
+	}
+	.animation {
+		height: 100%;
+	}
 	.starwars section {
 	  position: absolute;
 	  top: 50%;
@@ -569,7 +575,7 @@
 	  margin: 0 0 0 -7.325em;
 	  top: auto;
 	  bottom: 0;
-	  height: 50em;
+	  height: 100%;
 	  font-size: 1.2em;
 	  text-align: justify;
 	  overflow: hidden;
@@ -599,8 +605,8 @@
 	  top: 100%;
 	  transform: translate3d(0,0,0);
 	  will-change: transform;
-	  -webkit-animation: titles 50s linear 7s;
-	          animation: titles 50s linear 7s;
+	  -webkit-animation: titles 45s linear 7s;
+	          animation: titles 45s linear 7s;
 	}
 	.starwars .titles > div > p {
 	  margin: 1.35em 0 1.85em 0;
@@ -881,6 +887,19 @@
 						html * {
 							box-sizing: border-box;
 						}
+						.end {
+							text-transform: uppercase;
+							font-size: 2em;
+							text-align: center;
+							position: fixed;
+							top: 50%;
+							left: 50%;
+							width: 100%;
+							transform: translate3d(-50%, -50%, 0);
+							opacity: 0;
+							transition: opacity 1s;
+
+						}
 	</style>
 </head>
 <body>
@@ -929,35 +948,29 @@
       
   
     <section class="titles">
-      <div>  
+      <div id="anima-text">  
         <p>
-          Hi, 各位
+          Hi, 各位<br>
+          有好事要告诉大家,<br>
+          (虽然已经告诉过你们了)<br>
         </p>
-		
-	<p>汉.索罗 领了便当，挂在他儿子的手上。</p>
-	<p>你要问我《星球大战7》什么水平？从选鹿晗做中国区形象大使就知道了。</p>
-	<p>凯洛.伦 刚出场的时候感觉很厉害，但是一碰到0级主角，立马被爆。（所有反派角色请远离主角）</p>
-	<p>May the force be with you. 等《星战8》</p>
-				
-        <p>
-          During the battle, Rebel
-          spies managed to steal secret
-          plans to the Empire's
-          ultimate weapon, the DEATH
-          STAR, an armored space
-          station with enough power to
-          destroy an entire planet.
-        </p>
+		<p>
+		  周六我们要去的影院是UME华星，<br>
+		  时间: <em>下午3:30</em><br>
+		  地点是: 科学院南路44号(双安商场对面)<br>
+		  地铁4号线人民大学站下车(B出口)<br>
+		  从西二旗坐地铁过去大概40分钟<br>
+		  可以提前半小时过去<br>
+		  UME内有玩具店，书籍，海报店等可以逛的地方<br>
+		  另外，观影位置从地理上来看绝对是全场最佳。:)
+		</p>	
 
-        <p>
-          Pursued by the Empire's
-          sinister agents, Princess
-          Leia races home aboard her
-          starship, custodian of the
-          stolen plan that can save
-          her people and restore
-          freedom to the galaxy....
-        </p>
+		<p>
+		  晚饭: 重八牛府之初入江湖(火锅)<br>
+		  或者 西贝莜面村(当代店)<br>
+		  优先选择第一个
+		</p>	
+				
         </div>
     </section>
     
@@ -973,6 +986,10 @@
 
     	<h2 class="byline" id="byline">The Force Awakens</h2>
     </section>
+    </div>
+
+    <div id="end" class="end">
+    	May the force be with you.
     </div>
   </article>
 
@@ -1030,6 +1047,11 @@
 	    	that.start.style.display='none';
 	    	// that.audio.play();
 	    	that.el.appendChild(that.animation);
+
+	    	document.getElementById('anima-text').addEventListener('animationend', function() {
+	    		document.getElementsByClassName('animation')[0].parentNode.removeChild(that.animation);
+	    		document.getElementById('end').style.opacity = '1';
+	    	})
 	    });
 	    
 	    // Reset the animation and shows the start screen
